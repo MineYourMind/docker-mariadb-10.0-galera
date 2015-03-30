@@ -9,7 +9,7 @@ RUN add-apt-repository 'deb http://ftp.cc.uoc.gr/mirrors/mariadb/repo/10.0/ubunt
 RUN apt-get -q -y update
 RUN echo mariadb-galera-server-10.0 mysql-server/root_password password root | debconf-set-selections
 RUN echo mariadb-galera-server-10.0 mysql-server/root_password_again password root | debconf-set-selections
-RUN LC_ALL=en_US.utf8 DEBIAN_FRONTEND=noninteractive apt-get -o Dpkg::Options::='--force-confnew' -qqy install mariadb-galera-server galera mariadb-client
+RUN LC_ALL=en_US.utf8 DEBIAN_FRONTEND=noninteractive apt-get -o Dpkg::Options::='--force-confnew' -qqy install mariadb-galera-server-10.0 mariadb-client
 
 RUN service mysql restart
 

@@ -6,7 +6,7 @@ binlog_format=ROW
 default-storage-engine=innodb
 innodb_autoinc_lock_mode=2
 query_cache_type=0
-bind-address=0.0.0.0
+bind-address=10.0.100.20
 
 # Galera Provider Configuration
 wsrep_provider=/usr/lib/galera/libgalera_smm.so
@@ -14,13 +14,13 @@ wsrep_provider=/usr/lib/galera/libgalera_smm.so
 
 # Galera Cluster Configuration
 wsrep_cluster_name="galera_cluster"
-wsrep_cluster_address="gcomm://NODE_IP_1,NODE_IP_2,NODE_IP_3"
+wsrep_cluster_address="gcomm://"
 
 # Galera Synchronization Congifuration
 wsrep_sst_method=rsync
 #wsrep_sst_auth=user:pass
 
 # Galera Node Configuration
-wsrep_sst_receive_address="NODE_IP"
-wsrep_node_address="NODE_IP"
-wsrep_node_name="NODE_NAME"
+wsrep_sst_receive_address="10.0.100.20"
+wsrep_node_address="10.0.100.20"
+wsrep_node_name="DB2"
