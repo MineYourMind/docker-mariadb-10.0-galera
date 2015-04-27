@@ -36,13 +36,13 @@ Do this on all servers
 
 Start the first server with (sometimes requires "sudo docker restart mariadb-srv"):
 ```
-docker run -t -i -d --net=host --privileged=true --volumes-from mariadb-config --volumes-from mariadb-data --name mariadb-srv factual/mariadb-galera /bin/start new
+docker run -t -i -d --net=host --privileged=true --volumes-from mariadb-config --volumes-from mariadb-data -v /etc/timezone:/etc/timezone:ro -e "TZ=Europe/Berlin" --name mariadb-srv factual/mariadb-galera /bin/start new
 ```
 
 Start other servers with :
 ```
 # other servers
-docker run -t -i -d --net=host --privileged=true --volumes-from mariadb-config --volumes-from mariadb-data --name mariadb-srv factual/mariadb-galera /bin/start node
+docker run -t -i -d --net=host --privileged=true --volumes-from mariadb-config --volumes-from mariadb-data -v /etc/timezone:/etc/timezone:ro -e "TZ=Europe/Berlin" --name mariadb-srv factual/mariadb-galera /bin/start node
 
 
 # 4 - Restart server1 in "node mode"
@@ -51,7 +51,7 @@ It is very important to restart the first node just like the other. Otherwise if
 ```
 docker stop mariadb-srv
 docker rm mariadb-srv
-docker run -t -i -d --net=host --privileged=true --volumes-from server1-mariadb-config --volumes-from server1-mariadb-data --name mariadb-srv factual/mariadb-galera /bin/start node
+docker run -t -i -d --net=host --privileged=true --volumes-from mariadb-config --volumes-from mariadb-data -v /etc/timezone:/etc/timezone:ro -e "TZ=Europe/Berlin" --name mariadb-srv factual/mariadb-galera /bin/start node
 ```
 
 # 5 - Debug
