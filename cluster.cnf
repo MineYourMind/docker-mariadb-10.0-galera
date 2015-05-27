@@ -50,12 +50,13 @@ max_allowed_packet = 512M
 skip_name_resolve
 memlock=0
 sysdate_is_now=1
-max_connections=400
+max_connections=512
 thread_cache_size=512
 query_cache_type = 0
 query_cache_size = 0
 table_open_cache=1024
 lower_case_table_names=0
+wait_timeout = 28800
 # 5.6 backwards compatibility
 explicit_defaults_for_timestamp=1
 ##
