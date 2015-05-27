@@ -9,8 +9,8 @@ port=3304
 ### INNODB OPTIONS 
 innodb_buffer_pool_size=5338M
 innodb_flush_log_at_trx_commit=2
-innodb_file_per_table=1
-innodb_data_file_path = ibdata1:100M:autoextend
+#innodb_file_per_table=1
+#innodb_data_file_path = ibdata1:100M:autoextend
 ## You may want to tune the below depending on number of cores and disk sub
 innodb_read_io_threads=4
 innodb_write_io_threads=4
