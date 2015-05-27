@@ -10,8 +10,13 @@ RUN apt-get -q -y update
 RUN echo mariadb-galera-server-10.0 mysql-server/root_password password root | debconf-set-selections
 RUN echo mariadb-galera-server-10.0 mysql-server/root_password_again password root | debconf-set-selections
 RUN LC_ALL=en_US.utf8 DEBIAN_FRONTEND=noninteractive apt-get -o Dpkg::Options::='--force-confnew' -qqy install mariadb-galera-server-10.0 mariadb-client
-
 RUN service mysql restart
+#SSHD
+RUN DEBIAN_FRONTEND=noninteractive apt-get install -y openssh-server &&	mkdir -p /var/run/sshd && \
+    echo 'root:root' |chpasswd
+RUN sed -i "s/#PasswordAuthentication yes/PasswordAuthentication no/" /etc/ssh/sshd_config
+RUN sed -i "s/Port 22/Port 222/" /etc/ssh/sshd_config
+RUN service sshd restart
 
 ADD start /bin/start
 RUN chmod +x /bin/start

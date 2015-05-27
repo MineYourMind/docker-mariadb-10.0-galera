@@ -23,6 +23,15 @@ docker run --name mariadb-data -v /var/data/mariadb:/data busybox true
 
 ##### 
 
+##### Make a ssh container that will be accessible from the host and the container.
+```
+docker run --name mariadb-ssh -v /var/configs/mariadb/.ssh:/root/.ssh busybox true
+                                            ^^^^^^^                      ^^^^^^
+                                            Host directory               Container directory
+```
+
+#####
+
 
 # 2 - Config
 sudo docker tag <imageid> factual/mariadb-galera
