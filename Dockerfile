@@ -14,9 +14,8 @@ RUN service mysql restart
 #SSHD
 RUN DEBIAN_FRONTEND=noninteractive apt-get install -y openssh-server &&	mkdir -p /var/run/sshd && \
     echo 'root:root' |chpasswd
-RUN sed -i "s/#PasswordAuthentication yes/PasswordAuthentication no/" /etc/ssh/sshd_config
-RUN sed -i "s/Port 22/Port 222/" /etc/ssh/sshd_config
-#RUN service sshd restart
+ADD sshd_config /etc/ssh/sshd_config
+RUN service ssh restart
 
 ADD start /bin/start
 RUN chmod +x /bin/start
