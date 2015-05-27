@@ -67,7 +67,7 @@ explicit_defaults_for_timestamp=1
 wsrep_provider=/usr/lib/galera/libgalera_smm.so
 
 # Provider specific configuration options
-wsrep_provider_options="gcache.size=2048M; gmcast.segment=SEGMENTID; evs.keepalive_period=PT3S; evs.inactive_check_period=PT10S; evs.suspect_timeout=PT30S; evs.inactive_timeout=PT1M; evs.install_timeout=PT1M; evs.send_window=1024; evs.user_send_window=512;"
+#wsrep_provider_options="gcache.size=2048M; gmcast.segment=SEGMENTID; evs.keepalive_period=PT3S; evs.inactive_check_period=PT10S; evs.suspect_timeout=PT30S; evs.inactive_timeout=PT1M; evs.install_timeout=PT1M; evs.send_window=1024; evs.user_send_window=512;"
 
 # Logical cluster name. Should be the same for all nodes.
 wsrep_cluster_name="galera_cluster"
