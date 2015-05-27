@@ -52,7 +52,7 @@ Start other servers with :
 ```
 # other servers
 docker run -t -i -d --net=host --privileged=true --volumes-from mariadb-config --volumes-from mariadb-data -v /etc/timezone:/etc/timezone:ro -e "TZ=Europe/Berlin" --name mariadb-srv factual/mariadb-galera /bin/start node
-
+```
 
 # 4 - Restart server1 in "node mode"
 It is very important to restart the first node just like the other. Otherwise if you stop and start your container, you will create a new cluster each time.
