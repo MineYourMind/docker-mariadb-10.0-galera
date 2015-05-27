@@ -8,7 +8,7 @@ Let's say server1, server2, server3. You will have 2 data containers (data+confi
 # 1 - Config and data containers
 ### All Servers
 
-#### Build Image
+##### Build Image
 ```
 docker build https://github.com/MineYourMind/docker-mariadb-10.0-galera.git
 ```
