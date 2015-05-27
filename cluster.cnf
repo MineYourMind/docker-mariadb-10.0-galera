@@ -72,7 +72,7 @@ wsrep_provider_options="gcache.size=2048M; gmcast.segment=SEGMENTID; evs.keepali
 wsrep_cluster_name="galera_cluster"
 
 # Group communication system handle
-wsrep_cluster_address="gcomm://178.63.3.198,148.251.126.47,148.251.127.110,148.251.47.21,148.251.47.17"
+wsrep_cluster_address="gcomm://178.63.3.198,148.251.126.47,148.251.127.110,148.251.47.21,148.251.47.17,46.4.122.4"
 
 # Address for incoming client connections. Autodetect by default.
 #wsrep_node_incoming_address=
