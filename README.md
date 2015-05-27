@@ -7,6 +7,13 @@ Let's say server1, server2, server3. You will have 2 data containers (data+confi
 
 # 1 - Config and data containers
 ### All Servers
+
+#### Build Image
+```
+docker build https://github.com/MineYourMind/docker-mariadb-10.0-galera.git
+```
+
+
 ##### Make a config container that will be accessible from the host and the container.
 ```
 docker run --name mariadb-config -v /var/configs/mariadb/conf.d:/etc/mysql/conf.d busybox true
@@ -34,9 +41,11 @@ docker run --name mariadb-ssh -v /var/configs/mariadb/.ssh:/root/.ssh busybox tr
 
 
 # 2 - Config
+```
 sudo docker tag <imageid> factual/mariadb-galera
 cd /var/configs/mariadb/conf.d
 sudo nano cluster.cnf
+```
 Change <IP> to IP you want
 Change <NODE>'s to other nodes
 Do this on all servers
