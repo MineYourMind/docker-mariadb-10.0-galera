@@ -9,7 +9,9 @@ firstrun ()
 }
 
 main() {
-
+  
+  service ssh restart
+  
 	if [[ ! -f /data/debian-10.0.flag ]]
 	then
 		firstrun
